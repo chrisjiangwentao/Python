@@ -37,3 +37,20 @@ return hashtable hashtable[target-num], i // [7,2] //返回
 
 
 知识点：hashtable会覆盖。比如已有3:0，加入3:1之后，最后hashtable只会剩下3:1，而不是两个key（3:1， 3:2）
+
+```python
+class Solution(object):
+    def twoSum(self, nums1, target1):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        hashtable1 = dict()
+        for i, j in enumerate(nums1):
+            if target1 - j in hashtable1:
+                return [hashtable1[target1 - j], i]
+            hashtable1[nums1[i]] = i
+        return []
+```
+
