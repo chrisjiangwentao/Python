@@ -99,3 +99,21 @@ class Solution(object):
         return dummy.next
 ```
 
+## 20210826
+
+
+
+```python
+class Solution(object):
+    def findRepeatNumber(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        hashSet = set()
+        for num in nums:
+            if num in hashSet: return num
+            hashSet.add(num)
+        return -1
+```
+
