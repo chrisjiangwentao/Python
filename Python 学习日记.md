@@ -139,3 +139,32 @@ class Solution(object):
         return "".join(res)
 ```
 
+
+
+## 20210828
+
+
+
+
+
+```python
+class Solution(object):
+    def printNumbers(self, n):
+        """
+        :type n: int
+        :rtype: List[int]
+        """
+        return [i for i in range(1, 10**n)]
+
+        #  range(start, stop[, step])
+        # start: 计数从 start 开始。默认是从 0 开始。例如range（5）等价于range（0， 5）
+        # stop: 计数到 stop 结束，但不包括 stop。例如：range（0， 5） 是[0, 1, 2, 3, 4]没有5 
+        # step：步长，默认为1。例如：range（0， 5） 等价于 range(0, 5, 1)
+        
+        # range 在 for 中的使用，循环出runoob 的每个字母
+        # x = 'hello'
+        # for i in range(len(x)) :
+        # print(x[i])
+        # 结果：h，e，l，l，o
+```
+
