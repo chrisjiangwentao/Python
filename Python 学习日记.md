@@ -168,3 +168,31 @@ class Solution(object):
         # 结果：h，e，l，l，o
 ```
 
+
+
+## 20210829
+
+
+
+
+
+```python
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution(object):
+    def reversePrint(self, head):
+        """
+        :type head: ListNode
+        :rtype: List[int]
+        """
+        return self.reversePrint(head.next) + [head.val] if head else []
+        
+        # 递推阶段： 每次传入 head.next ，以 head == None（即走过链表尾部节点）为递归终止条件，此时返回空列表 [] 。
+
+        # 回溯阶段： 利用 Python 语言特性，递归回溯时每次返回 当前 list + 当前节点值 [head.val] ，即可实现节点的倒序输出。
+```
+
