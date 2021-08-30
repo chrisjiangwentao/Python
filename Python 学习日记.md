@@ -196,3 +196,35 @@ class Solution(object):
         # 回溯阶段： 利用 Python 语言特性，递归回溯时每次返回 当前 list + 当前节点值 [head.val] ，即可实现节点的倒序输出。
 ```
 
+
+
+
+
+## 20210830
+
+
+
+
+
+```python
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+class Solution(object):
+    def deleteNode(self, head, val):
+        """
+        :type head: ListNode
+        :type val: int
+        :rtype: ListNode
+        """
+        if head.val == val: return head.next # 如果要删除的值和头节点的值相同，则返回下一个节点，等同于删除头节点 （删除头节点）
+        pre, cur = head, head.next # 初始化节点
+        while cur and cur.val != val: # 如果当前的节点cur不为空，或者节点的值不等于要删除的值就继续循环，如果当前节点的值等于要删除的值，退出循环。
+            pre, cur = cur, cur.next # 调换节点位置，节点往后移一位
+        if cur: pre.next = cur.next # 如果cur指向某节点，前一个节点等于下一个节点 （删除当前节点）
+        return head # 返回修改后的链表
+
+```
+
