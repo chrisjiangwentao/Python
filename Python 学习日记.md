@@ -228,3 +228,34 @@ class Solution(object):
 
 ```
 
+
+
+
+
+## 20210831
+
+
+
+```python
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution(object):
+    def reverseList(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        # 迭代
+        cur, pre = head, None
+        while cur: # cur等于null的时候跳出循环
+            tmp = cur.next # 暂存当前节点的后续节点 cur.next
+            cur.next = pre # 修改当前节点的next 引用指向
+            pre = cur      # pre 暂存 cur
+            cur = tmp      # cur 访问下一节点
+        return pre
+```
+
