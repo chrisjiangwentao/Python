@@ -317,3 +317,37 @@ class Solution(object):
         return b
 ```
 
+
+
+## 20210903
+
+
+
+```python
+class Solution(object):
+    def merge(self, A, m, B, n):
+        """
+        :type A: List[int]
+        :type m: int
+        :type B: List[int]
+        :type n: int
+        :rtype: None Do not return anything, modify A in-place instead.
+        """
+        sorted = []
+        pa, pb = 0, 0 # 两个数组的下标
+        while pa < m or pb < n:
+            if pa == m: # 这里表示a走完了，所以把剩下的b直接加到排序里
+                sorted.append(B[pb])
+                pb += 1
+            elif pb == n: # 这里表示b走完了，把剩下的a加到排序里
+                sorted.append(A[pa])
+                pa += 1
+            elif A[pa] < B[pb]:
+                sorted.append(A[pa])
+                pa += 1
+            else:
+                sorted.append(B[pb])
+                pb += 1
+        A[:] = sorted # 这个地方不是特别理解！！！
+```
+
