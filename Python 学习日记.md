@@ -414,3 +414,22 @@ class Solution(object):
 
  
 
+## 20210905
+
+
+
+
+
+```python
+class Solution(object):
+    def numWays(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        a, b = 1, 1
+        for _ in range(n):
+            a, b = b, a + b
+        return a % 1000000007
+```
+
