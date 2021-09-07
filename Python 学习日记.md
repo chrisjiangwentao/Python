@@ -459,3 +459,27 @@ class Solution(object):
 
 ```
 
+
+
+
+
+## 20210907
+
+
+
+
+
+```python
+class Solution(object):
+    def missingNumber(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        return sum(range(len(nums)+1)) - sum(nums)
+
+        # 本来求和值: sum(range(len(nums)+1))
+        # 输入求和值： sum(nums)
+        # 缺失值：sum(range(len(nums)+1)) - sum(nums)
+```
+
