@@ -483,3 +483,21 @@ class Solution(object):
         # 缺失值：sum(range(len(nums)+1)) - sum(nums)
 ```
 
+
+
+## 20210908
+
+
+
+
+
+```python
+class Solution(object):
+    def distributeCandies(self, candyType):
+        """
+        :type candyType: List[int]
+        :rtype: int
+        """
+        return min(len(set(candyType)), len(candyType)/2)
+```
+
