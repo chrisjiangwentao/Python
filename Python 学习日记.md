@@ -501,3 +501,112 @@ class Solution(object):
         return min(len(set(candyType)), len(candyType)/2)
 ```
 
+
+
+## 20210909: Basic Python syntax
+
+
+
+### 数字(Number)类型
+
+python中数字有四种类型：整数、布尔型、浮点数和复数。
+
+- **int** (整数), 如 1, 只有一种整数类型 int，表示为长整型，没有 python2 中的 Long。
+- **bool** (布尔), 如 True。
+- **float** (浮点数), 如 1.23、3E-2
+- **complex** (复数), 如 1 + 2j、 1.1 + 2.2j
+
+
+
+
+
+### 字符串截取：
+
+索引值以 0 为开始值，-1 为从末尾的开始位置。
+
+Python中的字符串有两种索引方式，从左往右以0开始，从右往左以-1开始
+
+![img](https://static.runoob.com/wp-content/uploads/123456-20200923-1.svg)
+
+```python
+str='123456789'
+ 
+print(str)                 # 输出字符串
+print(str[0:-1])           # 输出第一个到倒数第二个的所有字符
+print(str[0])              # 输出字符串第一个字符
+print(str[2:5])            # 输出从第三个开始到第五个的字符
+print(str[2:])             # 输出从第三个开始后的所有字符
+print(str[1:5:2])          # 输出从第二个开始到第五个且每隔一个的字符（步长为2）
+print(str * 2)             # 输出字符串两次
+print(str + '你好')         # 连接字符串
+print('------------------------------')
+print('hello\nrunoob')      # 使用反斜杠(\)+n转义特殊字符
+print(r'hello\nrunoob')     # 在字符串前面添加一个 r，表示原始字符串，不会发生转义
+
+print('\n')       # 输出空行
+
+print(r'\n')      # 输出 \n
+
+
+'''
+结果：
+123456789
+12345678
+1
+345
+3456789
+24
+123456789123456789
+123456789你好
+------------------------------
+hello
+runoob
+hello\nrunoob
+空行
+\n
+'''
+```
+
+
+
+![img](https://www.runoob.com/wp-content/uploads/2014/08/list_slicing1_new1.png)
+
+```python
+a = [1, 2, 3, 4, 5, 6]
+a[0] = 9
+a[2:5] = [13, 14, 15]
+a
+# [9, 2, 13, 14, 15, 6]
+a[2:5] = []   # 将对应的元素值设置为 [] 
+a
+# [9, 2, 6]
+```
+
+
+
+### Python3 的六个标准数据类型中：
+
+- **不可变数据（3 个）：**Number（数字）、String（字符串）、Tuple（元组）；
+- **可变数据（3 个）：**List（列表）、Dictionary（字典）、Set（集合）。
+
+内置的 type() 函数可以用来查询变量所指的对象类型。
+
+```python
+a, b, c, d = 20, 5.5, True, 4+3j
+print(type(a), type(b), type(c), type(d))
+
+# <class 'int'> <class 'float'> <class 'bool'> <class 'complex'>
+```
+
+
+
+### del
+
+可以通过使用del语句删除单个或多个对象。例如：
+
+```python
+del var
+del var_a, var_b
+# del var1[,var2[,var3[....,varN]]]
+```
+
