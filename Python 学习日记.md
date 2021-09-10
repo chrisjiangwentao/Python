@@ -410,6 +410,11 @@ class Solution(object):
  9     c = int(a / b)
 10     r = a - c * b
 11     return r
+
+# 5%10
+# a=5 b=10
+# c= 0
+# r=5-0*5=5
 ```
 
  
