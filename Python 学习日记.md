@@ -615,3 +615,77 @@ del var_a, var_b
 # del var1[,var2[,var3[....,varN]]]
 ```
 
+
+
+## 20210910 hashmap底层原理
+
+
+
+**HashMap是一个用于存储Key-Value键值对的集合，每一个键值对也叫做Entry。这些个键值对（Entry）分散存储在一个数组当中，这个数组就是HashMap的主干。**
+
+
+
+对于HashMap，我们最常使用的是两个方法：**Get** 和 **Put**。
+
+1. **Put方法的原理**
+
+   比如调用 hashMap.put("apple", 0) ，插入一个Key为“apple"的元素。这时候我们需要利用一个哈希函数来确定Entry的插入位置（index）：
+
+   **index = Hash（“apple”）**
+
+   假定最后计算出的index是2，那么结果如下：
+
+   ![img](https://pic2.zhimg.com/80/v2-6f0c2ee36a675192f5bc629f404881e9_1440w.jpg)
+
+   
+
+   但是，因为HashMap的长度是有限的，当插入的Entry越来越多时，再完美的Hash函数也难免会出现index冲突的情况。比如下面这样：
+
+   ![img](https://pic3.zhimg.com/80/v2-81c6c3dc75ad7f1fee6666aad666de8a_1440w.jpg)
+
+   这时候该怎么办呢？我们可以利用**链表**来解决。
+
+   HashMap数组的每一个元素不止是一个Entry对象，也是一个链表的头节点。每一个Entry对象通过Next指针指向它的下一个Entry节点。当新来的Entry映射到冲突的数组位置时，只需要插入到对应的链表即可：
+
+   ![img](https://pic3.zhimg.com/80/v2-cb404baffd8419765c3d0a41555921fa_1440w.jpg)
+
+   之所以把Entry6放在头节点，是因为HashMap的发明者认为，**后插入的Entry被查找的可能性更大**， jdk1.8是尾插，jdk1.7是头插。 1.8之后加入了红黑树，当链表长度为8转换为红黑树。
+
+
+
+2. Get方法的原理
+
+   使用Get方法根据Key来查找Value的时候，首先会把输入的Key做一次Hash映射，得到对应的index：
+
+   index = Hash（“apple”）
+
+   由于刚才所说的Hash冲突，同一个位置有可能匹配到多个Entry，这时候就需要顺着对应链表的头节点，一个一个向下来查找。假设我们要查找的Key是“apple”：
+
+![img](https://pic4.zhimg.com/80/v2-e56018da68f0be0945a03971a097f41f_1440w.jpg)
+
+​		第一步，我们查看的是头节点Entry6，Entry6的Key是banana，显然不是我们要找的结果。
+
+​		第二步，我们查看的是Next节点Entry1，Entry1的Key是apple，正是我们要找的结果。
+
+
+
+3. 补充说明
+
+   HashMap的初始默认长度是16，同时每次扩充（或手动初始化）必需设置长度为2的幂（为了服务于从key映射到index的Hash算法）。
+
+   取模运算：**index = HashCode（Key） % Length ?**
+
+   位运算：**index = HashCode（Key） & （Length** **- 1）**
+
+   1.计算book的hashcode，结果为十进制的3029737，二进制的101110001110101110 1001。
+
+   2.假定HashMap长度是默认的16，计算Length-1的结果为十进制的15，二进制的1111。
+
+   3.把以上两个结果做**与运算**，101110001110101110 1001 & 1111 = 1001，十进制是9，所以 index=9。
+
+   可以说，Hash算法最终得到的index结果，完全取决于Key的Hashcode值的最后几位。
+
+   当HashMap长度为10或者其他非2的幂的时候，有些index结果的出现几率会更大，而有些index结果永远不会出现（比如0111），不符合Hash算法均匀分布的原则。1
+
+
+
