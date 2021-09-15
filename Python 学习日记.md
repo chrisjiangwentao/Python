@@ -572,7 +572,7 @@ hello\nrunoob
 '''
 ```
 
-
+## 20210915 List
 
 ![img](https://www.runoob.com/wp-content/uploads/2014/08/list_slicing1_new1.png)
 
@@ -586,6 +586,43 @@ a[2:5] = []   # 将对应的元素值设置为 []
 a
 # [9, 2, 6]
 ```
+
+![image-20210915215459791](/Users/wentao/Library/Application Support/typora-user-images/image-20210915215459791.png)
+
+
+
+### 翻转字符串：
+
+```python
+def reverseWords(input): 
+      
+    # 通过空格将字符串分隔符，把各个单词分隔为列表
+    inputWords = input.split(" ") 
+  
+    # 翻转字符串
+    # 假设列表 list = [1,2,3,4],  
+    # list[0]=1, list[1]=2 ，而 -1 表示最后一个元素 list[-1]=4 ( 与 list[3]=4 一样) 
+    # inputWords[-1::-1] 有三个参数
+    # 第一个参数 -1 表示最后一个元素
+    # 第二个参数为空，表示移动到列表末尾
+    # 第三个参数为步长，-1 表示逆向
+    inputWords=inputWords[-1::-1] 
+  
+    # 重新组合字符串
+    output = ' '.join(inputWords) 
+      
+    return output 
+  
+if __name__ == "__main__": 
+    input = 'I like runoob'
+    rw = reverseWords(input) 
+    print(rw)
+    # runoob like I
+```
+
+### Tuple:
+
+tuple的元素不可改变，但它可以包含可变的对象，比如list列表。
 
 
 
@@ -685,7 +722,7 @@ del var_a, var_b
 
    可以说，Hash算法最终得到的index结果，完全取决于Key的Hashcode值的最后几位。
 
-   当HashMap长度为10或者其他非2的幂的时候，有些index结果的出现几率会更大，而有些index结果永远不会出现（比如0111），不符合Hash算法均匀分布的原则。60
+   当HashMap长度为10或者其他非2的幂的时候，有些index结果的出现几率会更大，而有些index结果永远不会出现（比如0111），不符合Hash算法均匀分布的原则。
 
 
 
