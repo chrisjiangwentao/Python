@@ -572,7 +572,7 @@ hello\nrunoob
 '''
 ```
 
-## 20210915 List
+## 20210915 Python List
 
 ![img](https://www.runoob.com/wp-content/uploads/2014/08/list_slicing1_new1.png)
 
@@ -589,7 +589,7 @@ a
 
 ![image-20210915215459791](/Users/wentao/Library/Application Support/typora-user-images/image-20210915215459791.png)
 
-
+如果**第三个参数为负数表示逆向读取**，以下实例用于翻转字符串：
 
 ### 翻转字符串：
 
@@ -619,6 +619,8 @@ if __name__ == "__main__":
     print(rw)
     # runoob like I
 ```
+
+**如果第三个参数为负数表示逆向读取，以下实例用于翻转字符串：**
 
 ### Tuple:
 
@@ -795,7 +797,7 @@ del var_a, var_b
 
 
 
-## 20210918逻辑运算
+## 20210918 二进制逻辑运算
 
 
 
