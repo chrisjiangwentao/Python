@@ -624,7 +624,7 @@ if __name__ == "__main__":
 
 ### Tuple:
 
-tuple的元素不可改变，但它可以包含可变的对象，比如list列表。         
+tuple的元素不可改变，但它可以包含可变的对象，比如list列表。           
 
 
 
@@ -664,7 +664,7 @@ del var_a, var_b
 
 
 
-对于HashMap，我们最常使用的是两个方法：**Get** 和 **Put**。
+对于HashMap，我们最常使用的是两个方法：**Get** 和 **Put**。  
 
 1. **Put方法的原理**
 
