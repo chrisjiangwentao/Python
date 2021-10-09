@@ -14,7 +14,7 @@ Target=9
 
 
 
-if target -num in hashtable
+if target -num in hashtable 
 
 ​	return [hashtable[target-num],i]
 
